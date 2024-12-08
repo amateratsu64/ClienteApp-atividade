@@ -1,0 +1,60 @@
+﻿@model ClienteApp.Models.Cliente
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-center">Excluir Cliente</h1>
+
+<h3 class="text-center text-danger">Você tem certeza que deseja excluir este cliente?</h3>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <h4 class="mb-4">Informações do Cliente</h4>
+
+        <div class="mb-3">
+            <strong>Nome Completo:</strong> @Html.DisplayFor(model => model.NomeCompleto)
+        </div>
+        <div class="mb-3">
+            <strong>Data de Nascimento:</strong> @Html.DisplayFor(model => model.DataNascimento)
+        </div>
+        <div class="mb-3">
+            <strong>RG:</strong> @Html.DisplayFor(model => model.RG)
+        </div>
+        <div class="mb-3">
+            <strong>CPF:</strong> @Html.DisplayFor(model => model.CPF)
+        </div>
+        <div class="mb-3">
+            <strong>Endereço:</strong> @Html.DisplayFor(model => model.Logradouro), @Html.DisplayFor(model => model.Bairro) - @Html.DisplayFor(model => model.Cidade), @Html.DisplayFor(model => model.UF)
+        </div>
+        <div class="mb-3">
+            <strong>Complemento:</strong> @Html.DisplayFor(model => model.Complemento)
+        </div>
+        <div class="mb-3">
+            <strong>CEP:</strong> @Html.DisplayFor(model => model.CEP)
+        </div>
+        <div class="mb-3">
+            <strong>Estado Civil:</strong> @Html.DisplayFor(model => model.EstadoCivil)
+        </div>
+        <div class="mb-3">
+            <strong>Nome do Pai:</strong> @Html.DisplayFor(model => model.NomePai)
+        </div>
+        <div class="mb-3">
+            <strong>Nome da Mãe:</strong> @Html.DisplayFor(model => model.NomeMae)
+        </div>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-danger w-48">Excluir</button>
+                <a class="btn btn-secondary w-48 text-center" asp-action="Index">Voltar para a Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
